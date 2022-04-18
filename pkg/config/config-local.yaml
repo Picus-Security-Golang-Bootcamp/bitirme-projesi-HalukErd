@@ -1,0 +1,28 @@
+ServerConfig:
+  AppVersion: 1.0.0
+  Mode: Development
+  RoutePrefix: /api/v1/basket-api
+  Debug: false
+  Port: 8080
+  TimeoutSecs: 60
+  ReadTimeoutSecs: 60
+  WriteTimeoutSecs: 12
+
+JWTConfig:
+  SessionTime: 3600
+  SecretKey: dummySecretKey
+  TokenPrefix: "Bearer "
+
+DBConfig:
+  DataSourceName: postgres://HERDOGAN:ytjpzldm@localhost:5434/basket-db?sslmode=disable
+  Name: basket-db
+  MaxOpen: 50
+  MaxIdle: 50
+  MaxLifetime: 5
+  Migration: true
+
+Logger:
+  Development: true
+  Encoding: json
+  Level: info
+

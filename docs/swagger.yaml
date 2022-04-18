@@ -1,0 +1,64 @@
+definitions:
+  api.CreateProductRequest:
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  api.SignupRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/v1/basket-api/products:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: CreateProductRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api.CreateProductRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - products
+  /signup:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: SignupRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api.SignupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ""
+      tags:
+      - auth
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
